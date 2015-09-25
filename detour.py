@@ -11,11 +11,11 @@ def distance(point1, point2):
 
   lon1, lon2, lat1, lat2 = map(radians, [lon1, lon2, lat1, lat2])
 
-  longitudeDist = lon2 - lon1
-  latitudeDist = lat2 -lat1
+  longitude_dist = lon2 - lon1
+  latitude_dist = lat2 -lat1
   
   # Haversine formula
-  a = sin(longitudeDist/2)**2 + cos(lat1) * cos(lat2) * sin(longitudeDist/2)**2
+  a = sin(longitude_dist/2)**2 + cos(lat1) * cos(lat2) * sin(longitude_dist/2)**2
   c = 2 * asin(sqrt(a)) 
   r = 3956 # Earth's radius in miles
   return c * r
@@ -33,13 +33,13 @@ def detour(A,B,C,D):
   CABD = distance(C,A) + distance(A,B) + distance(B,D)
 
   if ACDB < CABD:
-    shorterDist = "ACDB"
+    shorter_dist = "ACDB"
   else:
-    shorterDist = "CABD"
+    shorter_dist = "CABD"
 
   print("The total detour distance for ACDB detour is = " + str(ACDB))
   print("The total detour distance for CABD detour is = " + str(CABD))
-  print("The shorter detour is the " + shorterDist + " route.")
+  print("The shorter detour is the " + shorter_dist + " route.")
 
 def main():
   #[latitude, longitude]
